@@ -3,18 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	// declare a variable
+	// declare a new slice of type string
+	// slice is a type of array that can grow or shrink, must have the same type of value
+	// array is fixed length list
+	cards := []string{
+		newCard(),
+		"Five of Diamonds",
+	}
 
-	// this one works
-	// var card string = "Ace of Spades"
+	// append a new value to slice
+	cards = append(cards, "Six of Spades")
 
-	// this one also works
-	card := newCard()
+	fmt.Println(cards)
 
-	// reassign a new value to a variable
-	// card = "Five of Diamonds"
-
-	fmt.Println(card)
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
 }
 
 func newCard() string {
