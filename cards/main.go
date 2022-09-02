@@ -9,10 +9,14 @@ func main() {
 	// var card string = "Ace of Spades"
 
 	// this one also works
-	card := "Ace of Spades"
+	card := newCard()
 
 	// reassign a new value to a variable
-	card = "Five of Diamonds"
+	// card = "Five of Diamonds"
 
 	fmt.Println(card)
+}
+
+func newCard() string {
+	return "Ace of Spades"
 }
