@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -38,4 +39,9 @@ func deal(d deck, handSize int) (deck, deck) {
 // allow any value with the type of "deck" to call this function. this is called "Receiver"
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
+}
+
+// allow any value with the type of "deck" to call this function. this is called "Receiver"
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }

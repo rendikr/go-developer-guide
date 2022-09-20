@@ -14,4 +14,6 @@ func main() {
 
 	hand.print()
 	remainingCards.print()
+
+	cards.saveToFile("my_cards")
 }
