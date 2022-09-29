@@ -1,7 +1,9 @@
 package main
 
-import "testing"
-import "os"
+import (
+	"os"
+	"testing"
+)
 
 func TestNewDeck(t *testing.T) {
 	d := newDeck()
