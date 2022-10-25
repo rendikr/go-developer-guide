@@ -31,6 +31,8 @@ func main() {
 	jimmy.print()
 }
 
+// *person = type pointer to a person
+// *pointerToPerson = operator to manipulate the value this pointer is referencing
 func (pointerToPerson *person) updateName(newFirstName string) {
 	(*pointerToPerson).firstName = newFirstName
 }
