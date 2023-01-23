@@ -12,6 +12,7 @@ func main() {
 		"http://stackoverflow.com",
 		"http://golang.org",
 		"http://amazon.com",
+		"http://localhost:3000",
 	}
 
 	// create a channel
@@ -22,8 +23,9 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	for i := 0; i < len(links); i++ {
-		fmt.Println(<-c)
+	// eternity for loop
+	for {
+		go checkLink(<-c, c)
 	}
 }
 
@@ -33,11 +35,11 @@ func checkLink(link string, c chan string) {
 	if err != nil {
 		fmt.Println(link, "might be down!")
 		// assign a value to channel
-		c <- "might be down I think"
+		c <- link
 		return
 	}
 
 	fmt.Println(link, "is up and running!")
 	// assign a value to channel
-	c <- "yep it's up"
+	c <- link
 }
