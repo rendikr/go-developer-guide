@@ -24,8 +24,8 @@ func main() {
 	}
 
 	// eternity for loop
-	for {
-		go checkLink(<-c, c)
+	for l := range c {
+		go checkLink(l, c)
 	}
 }
 
