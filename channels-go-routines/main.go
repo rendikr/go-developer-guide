@@ -22,7 +22,9 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	fmt.Println(<-c)
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 func checkLink(link string, c chan string) {
@@ -30,10 +32,12 @@ func checkLink(link string, c chan string) {
 
 	if err != nil {
 		fmt.Println(link, "might be down!")
+		// assign a value to channel
 		c <- "might be down I think"
 		return
 	}
 
 	fmt.Println(link, "is up and running!")
+	// assign a value to channel
 	c <- "yep it's up"
 }
